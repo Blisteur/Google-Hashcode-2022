@@ -56,3 +56,10 @@ bool Contributor::getIsAbailable(void)
 {
     return (_isAvailable);
 }
+
+bool Contributor::getSkillName(std::string skill)
+{
+    if (_skillList.find(skill) == _skillList.end())
+        return (false);
+    return (true);
+}

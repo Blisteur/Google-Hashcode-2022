@@ -28,6 +28,7 @@ class Contributor {
         size_t getSkillLevel(std::string skill);
         size_t getNbSkills(void);
         bool getIsAbailable(void);
+        bool getSkillName(std::string skill);
 
     protected:
         std::map<std::string, size_t> _skillList;
