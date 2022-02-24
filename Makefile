@@ -14,7 +14,7 @@ NAME 	=	googlehashcode
 
 CFLAGS	=	-I./ -g
 
-CFLAGS +=	-std=c++20 -Wall -Wextra -Werror -Wshadow -Wformat-security
+CFLAGS +=	-Wall -Wextra -Werror -Wshadow -Wformat-security
 
 CC =	g++
 
