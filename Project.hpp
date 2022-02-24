@@ -51,7 +51,7 @@ class Project {
         size_t _nbScore;
         size_t _nbBestBefore;
         size_t _nbContributors;
-        StatusProject _statusProject;
+        StatusProject _statusProject = StatusProject::NOTSTARTED;
         std::map<std::string, size_t> _competencesList;
         std::map<size_t, Contributor*> _contributorsList;
 };
