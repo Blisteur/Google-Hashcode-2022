@@ -55,6 +55,11 @@ void Project::setContributorList(size_t key, Contributor *coder)
     _contributorsList.emplace(std::make_pair(key, coder));
 }
 
+void Project::setStatusProject(StatusProject editStatus)
+{
+    _statusProject = editStatus;
+}
+
 std::string Project::getName()
 {
     return (_name);
@@ -88,4 +93,9 @@ size_t Project::getSkillLevel(std::string skill)
 Contributor* Project::getSpecificContributor(size_t key)
 {
     return (_contributorsList[key]);
+}
+
+Project::StatusProject Project::getStatusProject()
+{
+    return (_statusProject);
 }

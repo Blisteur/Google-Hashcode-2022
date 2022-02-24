@@ -17,6 +17,12 @@
 
 class Project {
     public:
+        enum StatusProject {
+            NOTSTARTED = (-true),
+            STARTED = true,
+            ENDED = false
+        };
+
         Project(std::string name, size_t nbDays, size_t nbScore, size_t nbBestScore, size_t nbContributors);
         ~Project();
 
@@ -27,6 +33,7 @@ class Project {
         void setNbContributors(size_t nbContributors);
         void setCompetencesList(std::string skill, size_t lvl);
         void setContributorList(size_t key, Contributor *coder);
+        void setStatusProject(StatusProject editStatus);
 
         std::string getName();
         size_t getNbDays();
@@ -35,6 +42,7 @@ class Project {
         size_t getNbContributors();
         size_t getSkillLevel(std::string skill);
         Contributor *getSpecificContributor(size_t key);
+        StatusProject getStatusProject();
 
     protected:
     private:
@@ -43,6 +51,7 @@ class Project {
         size_t _nbScore;
         size_t _nbBestBefore;
         size_t _nbContributors;
+        StatusProject _statusProject;
         std::map<std::string, size_t> _competencesList;
         std::map<size_t, Contributor*> _contributorsList;
 };
