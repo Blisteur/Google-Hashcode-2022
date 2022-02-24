@@ -32,6 +32,11 @@ void Contributor::setNbSkills(size_t nbSkills)
     _nbSkills = nbSkills;
 }
 
+void Contributor::setIsAvailable()
+{
+    _isAvailable = !_isAvailable;
+}
+
 std::string Contributor::getName(void)
 {
     return (_name);
@@ -45,4 +50,9 @@ size_t Contributor::getSkillLevel(std::string skill)
 size_t Contributor::getNbSkills(void)
 {
     return (_nbSkills);
+}
+
+bool Contributor::getIsAbailable(void)
+{
+    return (_isAvailable);
 }

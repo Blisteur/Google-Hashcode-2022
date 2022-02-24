@@ -50,12 +50,16 @@ void parse(int arg, char **args)
             }
             contributor--;
         } else {
-            size_t nbDays = std::stoi(line.substr(line.find(' ')));
-            size_t nbScore;
-            size_t nbBestBefore;
-            size_t nbContributors;
+            /*line = line.substr(line.find(' ') + 1, line.size());
+            size_t nbDays = std::stoi(line, nullptr, 10);
+            line = line.substr(line.find(' ') + 1, line.size());
+            size_t nbScore = std::stoi(line, nullptr, 10);
+            line = line.substr(line.find(' ') + 1, line.size());
+            size_t nbBestBefore = std::stoi(line, nullptr, 10);
+            line = line.substr(line.find(' ') + 1, line.size());
+            size_t nbContributors = std::stoi(line, nullptr, 10);
             Project tmpProject(line.substr(0, ' '), nbDays, nbScore, nbBestBefore, nbContributors);
-        }
+        */}
     }
 }
 

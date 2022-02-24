@@ -50,7 +50,7 @@ void Project::setCompetencesList(std::string skill, size_t lvl)
     _competencesList.emplace(std::make_pair(skill, lvl));
 }
 
-void Project::setContributorList(size_t key, Contributor coder)
+void Project::setContributorList(size_t key, Contributor *coder)
 {
     _contributorsList.emplace(std::make_pair(key, coder));
 }
@@ -85,7 +85,7 @@ size_t Project::getSkillLevel(std::string skill)
     return (_competencesList[skill]);
 }
 
-Contributor Project::getSpecificContributor(size_t key)
+Contributor* Project::getSpecificContributor(size_t key)
 {
     return (_contributorsList[key]);
 }

@@ -26,7 +26,7 @@ class Project {
         void setNbBestBefore(size_t nbBestBefore);
         void setNbContributors(size_t nbContributors);
         void setCompetencesList(std::string skill, size_t lvl);
-        void setContributorList(size_t key, Contributor coder);
+        void setContributorList(size_t key, Contributor *coder);
 
         std::string getName();
         size_t getNbDays();
@@ -34,16 +34,15 @@ class Project {
         size_t getNbBestBefore();
         size_t getNbContributors();
         size_t getSkillLevel(std::string skill);
-        Contributor getSpecificContributor(size_t key);
+        Contributor *getSpecificContributor(size_t key);
 
     protected:
+    private:
         std::string _name;
         size_t _nbDays;
         size_t _nbScore;
         size_t _nbBestBefore;
         size_t _nbContributors;
         std::map<std::string, size_t> _competencesList;
-        std::map<size_t, Contributor> _contributorsList;
-
-    private:
+        std::map<size_t, Contributor*> _contributorsList;
 };

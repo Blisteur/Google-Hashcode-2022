@@ -22,15 +22,18 @@ class Contributor {
         void setName(std::string name);
         void setSkills(std::string skill, size_t lvl);
         void setNbSkills(size_t nbSkills);
+        void setIsAvailable();
 
         std::string getName(void);
         size_t getSkillLevel(std::string skill);
         size_t getNbSkills(void);
+        bool getIsAbailable(void);
 
     protected:
         std::map<std::string, size_t> _skillList;
         std::string _name;
         size_t _nbSkills;
+        bool _isAvailable = false;
 
     private:
 };
