@@ -99,3 +99,22 @@ Project::StatusProject Project::getStatusProject()
 {
     return (_statusProject);
 }
+
+std::string Project::getSkillName(std::string skill)
+{
+    for (auto &i : _competencesList) {
+      if (i.first == skill)
+         return (i.first);
+   }
+   return (nullptr);
+
+}
+
+std::string Project::getPosSkillName(size_t pos)
+{
+    for (auto &i : _competencesList; pos--) {
+        if (pos == 0)
+            return (i.first);
+   }
+   return (nullptr);
+}

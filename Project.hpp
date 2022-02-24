@@ -43,6 +43,8 @@ class Project {
         size_t getSkillLevel(std::string skill);
         Contributor *getSpecificContributor(size_t key);
         StatusProject getStatusProject();
+        std::string getSkillName(std::string skill);
+        std::string getPosSkillName(size_t pos);
 
     protected:
     private:

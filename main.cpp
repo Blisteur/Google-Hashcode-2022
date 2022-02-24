@@ -1,4 +1,4 @@
-/*
+p/*
 ** EPITECH PROJECT, 2022
 ** main.cpp
 ** File description:
@@ -14,8 +14,6 @@
 
 #include "Contributor.hpp"
 #include "Project.hpp"
-
-
 
 void parseFirstLine(int& contributor, int &project, std::string &line)
 {
@@ -70,6 +68,19 @@ void parse(int arg, char **args)
             project--;
             projects.push_back(tmpProject);
         }
+    }
+    size_t counter = 0;
+    for (auto &j : contributors) {
+        for (auto &i : projects) {
+            if (j.getSkillName(i.getPosSkillName(counter))) {
+                //Le language du projet est dans les skills du dev
+                std::cout << "Le dev " << j.getName() << " a le language " << i.getName() << std::endl;
+                counter = 0;
+                break;
+            }
+            counter++;
+        }
+        counter = 0;
     }
 }
 
