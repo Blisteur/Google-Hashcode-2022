@@ -41,25 +41,35 @@ void parse(int arg, char **args)
 
     for (size_t i = 0; std::getline(file, line); i++) {
         if (contributor) {
-            Contributor tmpContributor(line.substr(0, line.find(' ')), std::stoi(line.substr(line.find(' ') + 1), nullptr, 10));
+            Contributor tmpContributor(line.substr(0, line.find(' ')), std::stoi(line.substr(line.find(' ') + 1)));
             std::cout << tmpContributor.getName() << "\t" << tmpContributor.getNbSkills() << std::endl;
             for (size_t j = 0; j != tmpContributor.getNbSkills(); j++) {
                 std::getline(file, line);
-                tmpContributor.setSkills(line.substr(0, ' '), std::stoi(line.substr(line.find(' ') + 1), nullptr, 10));
+                tmpContributor.setSkills(line.substr(0, ' '), std::stoi(line.substr(line.find(' ') + 1)));
                 std::cout << "\t" << line.substr(0, ' ') << "\t" << tmpContributor.getSkillLevel(line.substr(0, ' ')) << std::endl;
             }
             contributor--;
+            contributors.push_back(tmpContributor);
         } else {
-            /*line = line.substr(line.find(' ') + 1, line.size());
-            size_t nbDays = std::stoi(line, nullptr, 10);
+            std::string name = line.substr(0, ' ');
             line = line.substr(line.find(' ') + 1, line.size());
-            size_t nbScore = std::stoi(line, nullptr, 10);
+            size_t nbDays = std::stoi(line);
             line = line.substr(line.find(' ') + 1, line.size());
-            size_t nbBestBefore = std::stoi(line, nullptr, 10);
+            size_t nbScore = std::stoi(line);
             line = line.substr(line.find(' ') + 1, line.size());
-            size_t nbContributors = std::stoi(line, nullptr, 10);
-            Project tmpProject(line.substr(0, ' '), nbDays, nbScore, nbBestBefore, nbContributors);
-        */}
+            size_t nbBestBefore = std::stoi(line);
+            line = line.substr(line.find(' ') + 1, line.size());
+            size_t nbContributors = std::stoi(line);
+            Project tmpProject(name, nbDays, nbScore, nbBestBefore, nbContributors);
+            std::cout << tmpProject.getName() << std::endl;
+            for (size_t j = 0; j != tmpProject.getNbContributors(); j++) {
+                std::getline(file, line);
+                tmpProject.setCompetencesList(line.substr(0, ' '), std::stoi(line.substr(line.find(' ') + 1)));
+                std::cout << "\t" << line.substr(0, line.find(' ')) << std::endl;
+            }
+            project--;
+            projects.push_back(tmpProject);
+        }
     }
 }
 
